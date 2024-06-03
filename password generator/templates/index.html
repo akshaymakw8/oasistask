@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+</head>
+<body bgcolor="teal">
+    <h1>Password Generator</h1>
+    <form action="/generate_password" method="POST">
+        <label for="length">Password Length:</label>
+        <input type="number" id="length" name="length" min="1" max="50" value="12">
+        <br>
+        <input type="checkbox" id="include_digits" name="include_digits">
+        <label for="include_digits">Include Digits</label>
+        <br>
+        <input type="checkbox" id="include_special_chars" name="include_special_chars">
+        <label for="include_special_chars">Include Special Characters</label>
+        <br>
+        <button type="submit">Generate Password</button>
+    </form>
+    {% if generated_password %}
+        <h2>Generated Password:</h2>
+        <p>{{ generated_password }}</p>
+    {% endif %}
+</body>
+</html>
